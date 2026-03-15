@@ -2,7 +2,7 @@
 const { test, chromium } = require('@playwright/test');
 const https = require('https');
 
-const [email, password] = (process.env.OPTIKLINK_ACCOUNTS || ',').split(',');
+const [email, password] = (process.env.DISCORD_ACCOUNT || ',').split(',');
 const [TG_CHAT_ID, TG_TOKEN] = (process.env.TG_BOT || ',').split(',');
 
 const TIMEOUT = 60000;
@@ -127,7 +127,7 @@ test('OptikLink 保活', async () => {
     const proxyUrl = '';
 
     if (!email || !password) {
-        throw new Error('❌ 缺少账号配置，格式: OPTIKLINK_ACCOUNTS=email,password');
+        throw new Error('❌ 缺少账号配置，格式: DISCORD_ACCOUNT=email,password');
     }
 
     let proxyConfig = undefined;
